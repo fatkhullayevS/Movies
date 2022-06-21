@@ -41,7 +41,9 @@ elMovieList.addEventListener("click", function(e){
     if(e.target.matches(".bookmark-btn")){
         const bookmarkId = e.target.dataset.bookmarkBtnId;
         const foundBookmark = films.find(film => film.id === bookmarkId)
-        bookmarks.push(foundBookmark);
+        if (!bookmarks.includes(foundBookmark)) {
+          bookmarks.push(foundBookmark);
+        }
 
         elBookmarkList.innerHTML = null
 
